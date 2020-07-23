@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "chatty"
+    }
+  },
+  "defaultProject": "chatty",
+  "cli": {
+    "analytics": "0a1d7e17-1077-4b75-a2ec-85acc2dec377"
+  }
 }
