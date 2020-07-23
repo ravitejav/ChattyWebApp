@@ -8,12 +8,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogComponent implements OnInit {
 
-  message:string = "";
-
+  message: string = "";
+  retryButton: boolean = false;
   constructor(public dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) private data: any) { }
 
   ngOnInit(): void {
     this.message = this.data.message;
+    this.retryButton = this.data.retryButton || false;
   }
 
   handleOperation(reposone): void {

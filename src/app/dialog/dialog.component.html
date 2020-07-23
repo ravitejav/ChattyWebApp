@@ -1,7 +1,7 @@
 <main class="main-container">
   <p class="message">{{ message }}</p>
   <p class="buttons">
-    <button mat-raised-button color="primary" (click)="handleOperation('retry')" cdkFocusInitial>Retry</button>
+    <button *ngIf="retryButton" mat-raised-button color="primary" (click)="handleOperation('retry')" cdkFocusInitial>Retry</button>
     <button mat-raised-button color="accent" (click)="handleOperation('none')">Okay</button>
   </p>
 </main>

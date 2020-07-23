@@ -26,7 +26,7 @@
           <mat-error *ngIf="!loginForm.get('password').valid">{{getError('loginForm', 'password')}}</mat-error>
         </mat-form-field>
         <span>Forgot Password?</span>
-        <button mat-raised-button color="accent" [disabled]="!loginForm.valid"><mat-icon>login</mat-icon> Login</button>
+        <button mat-raised-button color="accent" [disabled]="!loginForm.valid" (click)="loginWithCreds()"><mat-icon>login</mat-icon> Login</button>
         <div class="line-with-or">
           <hr>or<hr>
         </div>
@@ -54,7 +54,7 @@
           <input matInput type="text" formControlName="nickName" [errorStateMatcher]="errorMatcher">
           <mat-error *ngIf="!signupForm.get('nickName').valid">{{getError('signupForm', 'nickName')}}</mat-error>
         </mat-form-field>
-        <button mat-raised-button color="accent" [disabled]="!signupForm.valid"><mat-icon>login</mat-icon>SignUp</button>
+        <button mat-raised-button color="accent" [disabled]="!signupForm.valid" (click)="signUp()"><mat-icon>login</mat-icon>SignUp</button>
         <div class="line-with-or">
           <hr>or<hr>
         </div>
