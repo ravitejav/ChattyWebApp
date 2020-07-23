@@ -133,6 +133,21 @@ export class HomePageComponent implements OnInit, OnDestroy {
     this.currentForm = 'login';
   }
 
+  resetPassword(): void {
+    this.dialogSubscriber.push(
+      this.dialog.open(DialogComponent, {
+        data: {
+          alert: false,
+          message: "Please enter emailId",
+        }
+      }).afterClosed().subscribe(async(response) => {
+        if (response.type === 'email') {
+          this.dialog.open(DialogComponent, { data: await this.signUpService.resetPassword(response.emailId) });
+        }
+      })
+    );
+  }
+
   ngOnDestroy(): void {
     this.dialogSubscriber.forEach(x => x.unsubscribe());
   }

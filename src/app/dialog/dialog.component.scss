@@ -1,5 +1,5 @@
 .main-container {
-  max-height: 100px;
+  max-height: 350px;
   max-width: 300px;
   min-height: 50px;
   min-width: 250px;
@@ -21,4 +21,8 @@ button {
 
 .message {
   flex: 2;
+}
+
+input {
+  border-bottom: thin;
 }

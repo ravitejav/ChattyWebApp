@@ -47,4 +47,19 @@ export class SignUpService {
       displayName: fullName + '##' + nickName,
     });
   }
+
+  resetPassword(email): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.firebase.auth().sendPasswordResetEmail(email)
+        .then(result => resolve({
+          error: false,
+          alert: true,
+          message: `Password reset mail is sent to ${email}`
+        })).catch(error => resolve({
+          error: true,
+          alert: true,
+          message: error.message,
+        }));
+    });
+  }
 }

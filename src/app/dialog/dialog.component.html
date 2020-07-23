@@ -1,7 +1,20 @@
 <main class="main-container">
-  <p class="message">{{ message }}</p>
-  <p class="buttons">
-    <button *ngIf="retryButton" mat-raised-button color="primary" (click)="handleOperation('retry')" cdkFocusInitial>Retry</button>
-    <button mat-raised-button color="accent" (click)="handleOperation('none')">Okay</button>
-  </p>
+  <ng-container *ngIf="alert">
+    <p class="message">{{ message }}</p>
+    <p class="buttons">
+      <button *ngIf="retryButton" mat-raised-button color="primary" (click)="handleOperation('retry')" cdkFocusInitial>Retry</button>
+      <button mat-raised-button color="accent" (click)="handleOperation('none')">Okay</button>
+    </p>
+  </ng-container>
+  <ng-container *ngIf="!alert">
+    <p class="message">{{ message }}</p>
+    <p>
+      <input matInput placeholder="Email Id" type="text" [(ngModel)]="emailid" autofocus />
+    </p>
+    <p class="buttons">
+      <button *ngIf="retryButton" mat-raised-button color="primary" (click)="handleOperation('cancel')" cdkFocusInitial>Cancel</button>
+      <button mat-raised-button color="accent" (click)="handleOperation('email')">Send mail</button>
+    </p>
+  </ng-container>
+
 </main>
