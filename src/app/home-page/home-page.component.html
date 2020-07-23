@@ -1,0 +1,65 @@
+<main class="wrap-container">
+  <section class="container">
+    <div class="about-content">
+      <h1>Welcome to<br></h1>
+      <h2><span class="secondary">Chatty</span></h2>
+      <div>
+        <mat-icon>login</mat-icon><span>login to you account</span>
+      </div>
+      <div>
+        <mat-icon>person_add</mat-icon><span>add your friends</span>
+      </div>
+      <div>
+        <mat-icon>chat</mat-icon><span>chat with friends</span>
+      </div>
+    </div>
+    <div class="form-container">
+      <div class="form" [formGroup]="loginForm" [id]="currentForm != 'login' ? 'no-login' : 'login-form'">
+        <mat-form-field>
+          <mat-label>Email ID</mat-label>
+          <input matInput formControlName="email" type="email" [errorStateMatcher]="errorMatcher">
+          <mat-error *ngIf="!loginForm.get('email').valid">{{getError('loginForm', 'email')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" [errorStateMatcher]="errorMatcher">
+          <mat-error *ngIf="!loginForm.get('password').valid">{{getError('loginForm', 'password')}}</mat-error>
+        </mat-form-field>
+        <span>Forgot Password?</span>
+        <button mat-raised-button color="accent" [disabled]="!loginForm.valid"><mat-icon>login</mat-icon> Login</button>
+        <div class="line-with-or">
+          <hr>or<hr>
+        </div>
+        <button mat-raised-button color="primary" (click)="loginWithGoogle()"><img src="assets/google.jpg" /> Sign in with google</button>
+        <button mat-raised-button color="primary" (click)="onFormChange('signup')">SignUp</button>
+      </div>
+      <div class="form" [formGroup]="signupForm" [id]="currentForm == 'login'? 'no-signup' : 'signup-form'">
+        <mat-form-field>
+          <mat-label>Email ID</mat-label>
+          <input matInput type="email" formControlName="email" [errorStateMatcher]="errorMatcher">
+          <mat-error *ngIf="!signupForm.get('email').valid">{{getError('signupForm', 'email')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" [errorStateMatcher]="errorMatcher">
+          <mat-error *ngIf="!signupForm.get('password').valid">{{getError('signupForm', 'password')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Full Name</mat-label>
+          <input matInput type="text" formControlName="fullName" [errorStateMatcher]="errorMatcher">
+          <mat-error *ngIf="!signupForm.get('fullName').valid">{{getError('signupForm', 'fullName')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Nick Name</mat-label>
+          <input matInput type="text" formControlName="nickName" [errorStateMatcher]="errorMatcher">
+          <mat-error *ngIf="!signupForm.get('nickName').valid">{{getError('signupForm', 'nickName')}}</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="accent" [disabled]="!signupForm.valid"><mat-icon>login</mat-icon>SignUp</button>
+        <div class="line-with-or">
+          <hr>or<hr>
+        </div>
+        <button mat-raised-button color="primary" (click)="onFormChange('login')">Login</button>
+      </div>
+    </div>
+  </section>
+</main>

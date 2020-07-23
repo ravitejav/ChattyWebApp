@@ -1,0 +1,175 @@
+.wrap-container {
+  height: 100%;
+  width: 100%;
+  display: block;
+  background-color: rgba($color: #c4c4c4, $alpha: 0.6);
+}
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+  height: 100vh;
+}
+
+.about-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    font-size: 320%;
+  }
+  h2 {
+    font-size: 280%;
+  }
+  div {
+    display: flex;
+    flex-direction: row;
+    width: 45%;
+    max-width: 250px;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+    justify-content: space-around;
+    align-items: center;
+    transform:translateY(-1220px);
+    animation-name: dropText;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    &:nth-child(3){
+      animation-delay: 0.6s;
+    }
+    &:nth-child(4){
+      animation-delay: 0.4s;
+    }
+    &:nth-child(5){
+      animation-delay: 0.2s;
+    }
+  }
+}
+
+.form-container {
+  flex: 0.8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  .form {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    min-height: 550px;
+    justify-self: left;
+    background-color: white;
+    max-width: 550px;
+    box-shadow: 1px 1px 4px 4px rgba($color: #5c5b5b83, $alpha: 1.0);
+  }
+}
+
+.secondary {
+  color: #ff2424;
+}
+
+.form {
+  padding: 4rem;
+  * {
+    margin: 0.2rem;
+  }
+  span {
+    text-align: end;
+    padding-bottom: 1rem;
+  }
+  button {
+    &:first-child {
+      max-width: 120px;
+      padding-left: 1rem;
+    }
+    img {
+      height: 30px;
+      width: 50px;
+      margin: 0;
+    }
+    &:nth-last-child(1), &:nth-last-child(2){
+      padding-left: 3px;
+      width: 220px;
+    }
+    align-self: center;
+  }
+}
+
+.line-with-or {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+  hr {
+    flex: 0.4;
+    height: 2px;
+  }
+}
+
+@keyframes dropText {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding-top: 1rem;
+    height: 100%;
+    .about-content {
+      flex: 2;
+      div {
+        width: 300px;
+      }
+      h1 {
+        font-size: 40px;
+      }
+      h2 {
+        font-size: 30px;
+      }
+    }
+  }
+  .form-container {
+    flex: 3;
+    .form {
+      padding: 0.4rem;
+      min-height: 370px;
+    }
+  }
+}
+
+@keyframes loginFlip {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+#no-login {
+  display: none;
+}
+
+#signup-form, #login-form {
+  animation-name: loginFlip;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+#no-signup {
+  display: none;
+}
+
+
